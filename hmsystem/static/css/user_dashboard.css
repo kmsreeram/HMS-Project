@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+::after,
+::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 1.5rem;
+
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.wrapper {
+    display: flex;
+
+    font-size:15px;
+}
+
+.main {
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    transition: all 0.35s ease-in-out;
+        background-color: #393E46;
+
+}
+
+#sidebar {
+    /* Full viewport dimensions */
+    height: 100vh;
+    position: fixed;
+
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 200px;
+
+    /* Visual styling */
+    background-color: #2b2d42;
+    border-radius:10px;
+    z-index: 1000;
+
+    /* Backdrop filter */
+    backdrop-filter: blur(30px) saturate(2);
+    -webkit-backdrop-filter: blur(30px) saturate(2);
+
+    /* Overflow handling */
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    /* Padding */
+    padding: 20px 0;
+
+    /* Animation */
+    transition: all 0.5s ease-in-out;
+}
+
+#sidebar:hover {
+    transform: translateX(20px);
+    box-shadow: 0 0 20px #1d4c73;
+}
+
+#sidebar.active {
+    transform: translateX(20px);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+}
+
+#sidebar.expand {
+    width: 260px;
+    min-width: 260px;
+}
+
+.toggle-btn {
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+    padding: 1rem 1.5rem;
+}
+
+.toggle-btn i {
+    font-size: 1.4rem;
+    color: #ffffff;
+}
+
+.sidebar-logo {
+    margin: auto 0;
+}
+
+.sidebar-logo a {
+    color: #ffffff;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+#sidebar:not(.expand) .sidebar-logo,
+#sidebar:not(.expand) a.sidebar-link span {
+    display: none;
+}
+
+.sidebar-nav {
+    padding: 2rem 0;
+    flex: 1 1 auto;
+}
+
+a.sidebar-link {
+    padding: .625rem 1.625rem;
+    color: #ffffff;
+    display: block;
+    font-size: 0.9.1rem;
+    white-space: nowrap;
+    border-left: 3px solid transparent;
+}
+
+.sidebar-link i {
+    font-size: 1.1rem;
+    margin-right: .75rem;
+}
+
+a.sidebar-link:hover {
+    background-color: #3e4053;
+    border-left: 3px solid #3e4053
+    ;
+    border-radius:12px;
+}
+
+.sidebar-item {
+    position: relative;
+}
+
+#sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
+    position: absolute;
+    top: 0;
+    left: 70px;
+    background-color: darkcyan;
+    padding: 0;
+    min-width: 15rem;
+    display: none;
+}
+
+#sidebar:not(.expand) .sidebar-item:hover .has-dropdown+.sidebar-dropdown {
+    display: block;
+    max-height: 15em;
+    width: 100%;
+    opacity: 1;
+}
+
+#sidebar.expand .sidebar-link[data-bs-toggle="collapse"]::after {
+    border: solid;
+    border-width: 0 .075rem .075rem 0;
+    content: "";
+    display: inline-block;
+    padding: 2px;
+    position: absolute;
+    right: 1.5rem;
+    top: 1.4rem;
+    transform: rotate(-135deg);
+    transition: all .2s ease-out;
+
+}
+
+#sidebar.expand .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
+    transform: rotate(45deg);
+    transition: all .2s ease-out;
+}
+.sidebar-dropdown a:hover {
+    color: #00b37c !important;
+}
+.main {
+    width: 50%;
+    margin: 50px auto;
+    background: #f4f6f900; /* Soft gray-blue background */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(69, 149, 86, 0.82);
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border-top: 5px solid #459556d1; /* Vibrant blue accent */
+    font-family: 'Poppins', sans-serif;
+}
+
+.main:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Header */
+header {
+    padding: 20px;
+}
+
+/* Doctor's Name */
+h1 {
+    font-size: 28px;
+    color: #2c3e50; /* Dark gray-blue */
+    margin-bottom: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: capitalize;
+}
+
+/* Doctor's Profile Image */
+.doctor-photo {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    margin: 15px 0;
+    border: 5px solid #007bff; /* Bold blue outline */
+    border-radius: 8px; /* Soft square edges */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.doctor-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+}
+
+/* Doctor Details */
+p {
+    font-size: 45px;
+    color: #444;
+    margin: 8px 0;
+    font-weight: 400;
+    line-height: 1.6;
+
+}
+
+p strong {
+    color: #222;
+    font-weight: 600;
+}
+
+/* Subtle Separator */
+hr {
+    border: none;
+    height: 1px;
+    background: rgba(0, 123, 255, 0.3);
+    margin: 15px 0;
+}
+
+/* Button for Action */
+.button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    background: #007bff; /* Vibrant blue */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    font-family: 'Poppins', sans-serif;
+}
+
+.button:hover {
+    background: #0056b3; /* Darker blue */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .doctor-photo {
+        width: 140px;
+        height: 140px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 15px;
+    }
+}

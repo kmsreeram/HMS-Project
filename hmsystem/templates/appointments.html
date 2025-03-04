@@ -1,0 +1,17 @@
+table border="1">
+        <tr>
+            <th>Patient Name</th>
+            <th>Appointment Date</th>
+            <th>Status</th>
+        </tr>
+        {% for appointment in appointments %}
+        <tr>
+            <td>{{ appointment.a_patient }}</td>
+            <td>{{ appointment.a_appointment_date }}</td>
+            <td>{{ appointment.a_status }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p>No appointments found.</p>
+
+{% endblock %}

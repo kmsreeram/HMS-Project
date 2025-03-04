@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <title>Add Appointment</title>
+      <link rel="stylesheet" href="{% static 'css/add_appointment_d.css' %}">
+
+</head>
+<body>
+
+    <h2>Add Appointment</h2>
+
+    <!-- Show success or error messages -->
+    {% if messages %}
+        {% for message in messages %}
+            <p style="color: {% if message.tags == 'success' %}green{% else %}red{% endif %};">
+                {{ message }}
+            </p>
+        {% endfor %}
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Appointment</button>
+    </form>
+</body>
+</html>

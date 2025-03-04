@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Doctor</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/doctor_edit.css' %}">
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <h1>Edit Doctor</h1>
+
+    {% if form.errors %}
+        <p style="color: red;">There were some errors in your form!</p>
+    {% endif %}
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- ✅ Display form properly -->
+        <button type="submit">Save Changes</button>
+    </form>
+
+    <a href="{% url 'doctors_list' %}">Back to List</a>  <!-- ✅ Add a back button -->
+</body>
+</html>

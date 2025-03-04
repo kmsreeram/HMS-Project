@@ -1,0 +1,72 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor Records</title>
+    <link rel="stylesheet" href="{% static 'css/doctor_list.css' %}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <h1>All Doctors</h1>
+    <table border="1">
+        <tr>
+                <a href="{% url 'user_dashboard' %}" class="back-btn">
+        <i class="fa-solid fa-arrow-left"></i> Back
+    </a>
+
+            <th>ID</th>
+            <th>Name</th>
+            <th>Specialty</th>
+            <th>Contact No</th>
+
+            <th>Age</th>
+            <th>HMS</th>
+            <th>User ID</th>
+            <th>Password</th>
+            <th>Photo</th>
+            <th>Actions</th>
+        </tr>
+
+        {% for doctor in doctors %}
+        <tr>
+            <td>{{ doctor.d_id }}</td>
+            <td>{{ doctor.d_name }}</td>
+            <td>{{ doctor.d_specialty }}</td>
+            <td>{{ doctor.d_contact_no }}</td>
+            <td>{{ doctor.d_age }}</td>
+            <td>{{ doctor.d_hms }}</td>
+            <td>{{ doctor.d_user_id }}</td>
+            <td>{{ doctor.d_password }}</td>
+            <td>
+                {% if doctor.d_photo %}
+                    <img src="{{ doctor.d_photo.url }}" alt="Doctor Photo" width="100" height="100">
+                {% else %}
+                    No Photo
+                {% endif %}
+            </td>
+            <td>
+                <a href="{% url 'edit_doctor' doctor.d_id %}" class="edit-btn">
+                    <i class="fa-solid fa-pen-to-square"></i>
+&nbsp;
+                <a href="{% url 'delete_doctor' doctor.d_id %}" class="delete-btn" onclick="return confirm('Are you sure you want to delete this doctor?');">
+        <i class="fa-solid fa-trash"></i>
+    </a>
+                </a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+                <td colspan="10">No doctors found.
+                    <br>
+                    <br><br>
+
+                    <a href="add_doctor" class="add-doctor-btn">
+            <i class="fa-solid fa-user-plus"></i> Add Doctor
+            </a></td>
+
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

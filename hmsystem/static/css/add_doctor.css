@@ -1,0 +1,134 @@
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f5f8fa;
+        margin: 0;
+        padding: 20px;
+        color: #333;
+    }
+
+    form {
+        max-width: 600px;
+        margin: 30px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    h2 {
+        text-align: center;
+        color: #00a884;
+        margin-bottom: 30px;
+        font-weight: 600;
+    }
+
+    div.form-group {
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: #555;
+        width: 140px;
+        flex-shrink: 0;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="number"],
+    input[type="tel"],
+    input[type="email"] {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 15px;
+        transition: border-color 0.3s, box-shadow 0.3s;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus,
+    input[type="number"]:focus,
+    input[type="tel"]:focus,
+    input[type="email"]:focus {
+        border-color: #00a884;
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(0, 168, 132, 0.1);
+    }
+
+    input[type="file"] {
+        margin-top: 8px;
+    }
+
+    ::-webkit-file-upload-button {
+        background: #00a884;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        margin-right: 10px;
+        transition: background-color 0.3s;
+    }
+
+    ::-webkit-file-upload-button:hover {
+        background: #008f72;
+    }
+
+        .btn {
+    display: inline-block;
+    padding: 8px 16px;  /* Reduce padding */
+    font-size: 14px;    /* Decrease font size */
+    font-weight: 500;   /* Keep it readable */
+    border-radius: 6px; /* Slightly smaller rounded corners */
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+        border: none; /* Removes any default border */
+    outline: none;
+}
+
+/* Apply the smaller size to your button */
+.btn-secondary {
+    background: linear-gradient(135deg, #008f72, #008f72);
+    color: white;
+}
+
+/* Hover Effect */
+.btn-secondary:hover {
+    background: linear-gradient(135deg, #008f72, #008f72);
+    transform: scale(1.03); /* Slightly less scaling */
+}
+
+/* Active (Pressed) Effect */
+.btn-secondary:active {
+    transform: scale(0.98); /* Shrink slightly when clicked */
+}
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        form {
+            padding: 20px;
+            margin: 10px;
+        }
+
+        div.form-group {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        label {
+            width: 100%;
+            margin-bottom: 5px;
+        }
+    }

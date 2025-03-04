@@ -1,0 +1,11 @@
+{% load static %}
+  <link rel="stylesheet" href="{% static 'css/shedule_opperation.css' %}">
+<h2>Schedule a New Operation</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Schedule</button>
+</form>
+<a href="{% url 'user_dashboard' %}" class="back-button">
+    <i class="fas fa-arrow-left"></i> Back
+</a>

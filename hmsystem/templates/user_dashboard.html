@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/user_dashboard.css' %}">
+</head>
+
+<body>
+    <div class="wrapper">
+        <aside id="sidebar">
+            <div class="d-flex">
+                <button class="toggle-btn" type="button">
+                <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="sidebar-logo">
+                    <a href="#">Dashboard</a>
+                </div>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link">
+                      <i class="fas fa-user"></i>
+                      <span>Profile </span>
+                    </a>
+                </li>
+                                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                        data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
+                        <i class="fa-solid fa-user-doctor"></i>
+                        <span>Doctor Management</span>
+                    </a>
+                    <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                        <li class="sidebar-item">
+                            <a href="add_doctor" class="sidebar-link">
+                                <i class="fa-solid fa-user-doctor"></i>Add Doctors
+                            </a>
+                            <a href="doctors_list" class="sidebar-link">
+                                <i class="fa-solid fa-user-doctor"></i>Doctors List
+                            </a>
+                        <a href="add_appointment_d" class="sidebar-link">
+                            <i class="fa-solid fa-calendar"></i>Add Appointments For<br>Doctors
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                        data-bs-target="#task" aria-expanded="false" aria-controls="task">
+                        <i class="fas fa-tasks"></i>
+                        <span>Patient Management</span>
+                    </a>
+                <ul id="task" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                    <li class="sidebar-item">
+                    <a href="add_patient" class="sidebar-link">
+                        <i class="fas fa-users"></i> Add Patient
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="patient_record" class="sidebar-link">
+                        <i class="fas fa-user-injured"></i> Patient Record
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="appointments" class="sidebar-link">
+                        <i class="fas fa-calendar-check"></i> Appointments
+                    </a>
+                </li>
+            </ul>
+
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                        data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
+                        <i class="fas fa-layer-group"></i>
+                        <span>Shedules</span>
+                    </a>
+                <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                <li class="sidebar-item">
+                    <a href="shedule_operation" class="sidebar-link">
+                        <i class="fa-solid fa-file-invoice"></i> Shedule Operation
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="operation_list" class="sidebar-link">
+                        <i class="fas fa-file-invoice-dollar"></i> Scheduled Operations
+                    </a>
+                </li>
+            </ul>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                        data-bs-target="#report" aria-expanded="false" aria-controls="report">
+                        <i class="fa-solid fa-user-doctor"></i>
+                        <span>Reports & Analytics</span>
+                    </a>
+                    <ul id="report" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">
+                                <i class="fas fa-chart-line"></i>Hospital Performance
+                            </a>
+                        <a href="#" class="sidebar-link">
+                            <i class="fas fa-users"></i> Patient Demographics
+                            </a>
+                        <a href="#" class="sidebar-link">
+                            <i class="fas fa-dollar-sign"></i> Revenue & Expenses
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link">
+                        <i class="fas fa-bell"></i>
+                        <span>Notification</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Setting</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <a href="#" class="sidebar-link">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+        <div class="main p-3">
+            <div class="text-center">
+                <h1>
+                    <p><strong>Admin ID:</strong> {{ admin.a_admin_id }}</p>
+                    {% if admin.a_photo %}
+    <img src="{{ admin.a_photo.url }}" alt="Admin Photo" width="150">
+{% else %}
+    <p>No photo available</p>
+{% endif %}
+
+        <p><strong>Username:</strong> {{ admin.a_username }}</p>
+        <p><strong>Role:</strong> {{ admin.a_roles }}</p>
+        <p><strong>HMS:</strong> {{ admin.a_hms }}</p>
+                </h1>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/sript.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

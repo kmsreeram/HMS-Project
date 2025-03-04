@@ -1,0 +1,29 @@
+
+<h2>Welcome, Dr. {{ doctor.d_name }}</h2>
+<p>Specialty: {{ doctor.d_specialty }}</p>
+<p>Contact: {{ doctor.d_contact_no }}</p>
+
+
+{% block content %}
+<h2>Doctor's Dashboard</h2>
+
+{% if appointments %}
+    <table border="1">
+        <tr>
+            <th>Patient Name</th>
+            <th>Appointment Date</th>
+            <th>Status</th>
+        </tr>
+        {% for appointment in appointments %}
+        <tr>
+            <td>{{ appointment.a_patient }}</td>
+            <td>{{ appointment.a_appointment_date }}</td>
+            <td>{{ appointment.a_status }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>No appointments found.</p>
+{% endif %}
+
+{% endblock %}

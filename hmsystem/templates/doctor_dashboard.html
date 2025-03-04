@@ -1,0 +1,68 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor's Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/doctor_dashboard.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar Navigation -->
+        <nav id="sidebar">
+            <div class="sidebar-logo">
+                <i class="ri-dashboard-line"></i>
+                <a href="#">Dashboard</a>
+            </div>
+            <div class="sidebar-nav">
+                <ul>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            <i class="ri-dashboard-line"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="appointments" class="sidebar-link">
+                            <i class="ri-calendar-line"></i>
+                            <span>Appointments</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="operation_list" class="sidebar-link">
+                            <i class="ri-user-heart-line"></i>
+                            <span>Schedules</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                            <i class="ri-logout-box-line"></i>
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main">
+            <header>
+                <h1>Welcome, Dr. {{ doctor.d_name }}</h1>
+
+                {% if doctor.d_photo %}
+                    <img src="{{ doctor.d_photo.url }}" alt="Doctor's Photo" class="doctor-photo">
+                {% else %}
+                    <p>No photo available</p>
+                {% endif %}
+
+                <p>Specialty: {{ doctor.d_specialty }}</p>
+                <p>Contact: {{ doctor.d_contact_no }}</p>
+                <p>Age: {{ doctor.d_age }}</p>
+                <p>Gender: {{ doctor.get_d_gender_display }}</p>  <!-- Gender added here -->
+                <p>ID: {{ doctor.d_id }}</p>
+            </header>
+        </div>
+    </div>
+</body>
+</html>

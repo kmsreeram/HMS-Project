@@ -1,0 +1,40 @@
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/doctor_schedule.css' %}">
+
+<div class="container">
+    <h2 class="mt-4">Doctor's Operation Schedule</h2>
+
+    {% if schedules %}
+        <table class="table table-bordered mt-3">
+            <thead class="table-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Patient Name</th>
+                    <th>Operation Type</th>
+                    <th>Theater</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for schedule in schedules %}
+                <tr>
+                        <td>{{ forloop.counter }}</td>
+                    <td>{{ schedule.patient }}</td>
+                    <td>{{ schedule.operation_type }}</td>
+                    <td> {{ schedule.theater }}</td>
+                   <td>{{ schedule.scheduled_date|date:"Y-m-d" }}</td>  <!-- Formats as Date -->
+<td>{{ schedule.scheduled_date|time:"H:i A" }}</td>  <!-- Extracts Time -->
+<td>{{ schedule.status }}</td>  <!-- Show Status -->
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="alert alert-info mt-3">
+            No operations scheduled at the moment.
+        </div>
+    {% endif %}
+</div>

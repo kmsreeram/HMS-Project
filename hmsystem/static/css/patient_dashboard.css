@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* General Styling */
+*,
+::after,
+::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+/* Wrapper and Main Content */
+.wrapper {
+    display: flex;
+    font-size: 15px;
+    width: 100%;
+}
+
+.main {
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    transition: all 0.35s ease-in-out;
+    background-color: #f5f5f5;
+    margin-left: 250px; /* Match sidebar width */
+    padding: 20px;
+}
+
+/* Sidebar */
+#sidebar {
+    width: 250px;
+    background: #2c3e50;
+    color: white;
+    height: 100vh;
+    padding: 20px 0;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: all 0.5s ease-in-out;
+}
+
+#sidebar:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar-logo {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 0 20px;
+}
+
+.sidebar-logo a {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.sidebar-nav {
+    padding: 0;
+    flex: 1 1 auto;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-item {
+    padding: 0;
+    margin: 10px 0;
+}
+
+a.sidebar-link {
+    padding: 12px 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    border-left: 3px solid transparent;
+    transition: all 0.3s;
+}
+
+.sidebar-link i {
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+a.sidebar-link:hover {
+    background: #34495e;
+    border-left: 3px solid #3498db;
+    border-radius: 0;
+    padding-left: 23px;
+}
+
+/* Dropdown styling */
+.sidebar-dropdown {
+    padding-left: 20px;
+}
+
+.sidebar-dropdown a.sidebar-link {
+    padding: 8px 15px;
+    font-size: 14px;
+}
+
+/* Toggle button */
+.toggle-btn {
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+    padding: 0.5rem 1rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.toggle-btn i {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-right: 10px;
+}
+
+/* Table Styling */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.styled-table th, .styled-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.styled-table th {
+    background-color: #3498db;
+    color: white;
+}
+
+.styled-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.styled-table tr:hover {
+    background-color: #ddd;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #sidebar {
+        width: 70px;
+        padding: 10px 0;
+    }
+
+    .sidebar-logo a,
+    a.sidebar-link span,
+    .toggle-btn span {
+        display: none;
+    }
+
+    .sidebar-link i {
+        margin-right: 0;
+    }
+
+    a.sidebar-link {
+        padding: 12px;
+        justify-content: center;
+    }
+
+    .main {
+        margin-left: 70px;
+    }
+
+    .sidebar-dropdown {
+        position: absolute;
+        left: 70px;
+        background: #2c3e50;
+        min-width: 180px;
+        display: none;
+    }
+
+    .sidebar-item:hover .sidebar-dropdown {
+        display: block;
+    }
+}
+/* Importing Poppins Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Main Profile Card */
+.main {
+    width: 50%;
+    margin: 50px auto;
+    background: #f4f6f9; /* Soft gray-blue background */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border-top: 5px solid #007bff; /* Vibrant blue accent */
+    font-family: 'Poppins', sans-serif;
+}
+
+.main:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Header */
+header {
+    padding: 20px;
+}
+
+/* Doctor's Name */
+h1 {
+    font-size: 28px;
+    color: #2c3e50; /* Dark gray-blue */
+    margin-bottom: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: capitalize;
+}
+
+/* Doctor's Profile Image */
+.doctor-photo {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    margin: 15px 0;
+    border: 5px solid #007bff; /* Bold blue outline */
+    border-radius: 8px; /* Soft square edges */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.doctor-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+}
+
+/* Doctor Details */
+p {
+    font-size: 17px;
+    color: #444;
+    margin: 8px 0;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+p strong {
+    color: #222;
+    font-weight: 600;
+}
+
+/* Subtle Separator */
+hr {
+    border: none;
+    height: 1px;
+    background: rgba(0, 123, 255, 0.3);
+    margin: 15px 0;
+}
+
+/* Button for Action */
+.button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    background: #007bff; /* Vibrant blue */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    font-family: 'Poppins', sans-serif;
+}
+
+.button:hover {
+    background: #0056b3; /* Darker blue */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .doctor-photo {
+        width: 140px;
+        height: 140px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 15px;
+    }
+}

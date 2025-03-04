@@ -1,0 +1,26 @@
+{% load static %}
+  <link rel="stylesheet" href="{% static 'css/operation_list.css' %}">
+
+<h2>Scheduled Operations</h2>
+
+
+<table border="1">
+    <tr>
+        <th>Patient</th>
+        <th>Doctor</th>
+        <th>Operation</th>
+        <th>Date & Time</th>
+        <th>Status</th>
+    </tr>
+    {% for operation in operations %}
+    <tr>
+        <td>{{ operation.patient }}</td>
+        <td>{{ operation.doctor}}</td>
+        <td>{{ operation.operation_type }}</td>
+        <td>{{ operation.scheduled_date|date:"Y-m-d" }} at {{ operation.scheduled_date|time:"h:i A" }}</td>
+
+        <td>{{ operation.status }}</td><
+    </tr>
+    {% endfor %}
+</table>
+<a href="{% url 'shedule_operation' %}">Schedule New Operation</a>

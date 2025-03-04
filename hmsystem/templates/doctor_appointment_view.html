@@ -1,0 +1,39 @@
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointments</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/doc_appnt.css' %}">
+</head>
+<body>
+        <a href="{% url 'doctor_dashboard' %}" class="back-button">⬅ Back</a>
+    <section class="appointments">
+        <h2>Upcoming Appointments</h2>
+        {% if appointments %}
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Patient Name</th>
+                        <th>Appointment Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for appointment in appointments %}
+                    <tr>
+                        <td>{{ appointment.a_patient }}</td>
+                        <td>{{ appointment.a_appointment_date }}</td>
+                        <td>{{ appointment.a_status }}</td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No appointments found.</p>
+        {% endif %}
+    </section>
+
+</body>
+</html>

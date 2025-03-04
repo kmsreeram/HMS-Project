@@ -1,0 +1,68 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor's Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/doctor_dashboard.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar Navigation -->
+        <nav id="sidebar">
+            <div class="sidebar-logo">
+                <i class="ri-dashboard-line"></i>
+                <a href="#">Dashboard</a>
+            </div>
+            <div class="sidebar-nav">
+                <ul>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            <i class="ri-dashboard-line"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="patient_appointments" class="sidebar-link">
+                            <i class="ri-calendar-line"></i>
+                            <span>View Your Appointments</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            <i class="ri-user-heart-line"></i>
+                            <span>Medical records</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                            <i class="ri-logout-box-line"></i>
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main">
+            <header>
+                <h1>Welcome,{{ patient.p_name }}</h1>
+
+                {% if patient.p_photo %}
+                    <img src="{{ patient.p_photo.url }}" alt="Patient Photo" class="doctor  -photo">
+                {% else %}
+                    <p>No photo available</p>
+                {% endif %}
+                <p><strong>Patient ID:</strong> {{ patient.p_id }}</p>
+                <p><strong>Contact:</strong> {{ patient.p_contact_no }}</p>
+                <p><strong>Address:</strong> {{ patient.p_address }}</p>
+                <p><strong>Age:</strong> {{ patient.p_age }}</p>
+                <p><strong>Gender:</strong> {{ patient.p_gender }}</p>
+                <p><strong>Blood Group:</strong> {{ patient.p_blood_group }}</p>
+            </header>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,161 @@
+/* Base styles with improved animation */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9f3;
+    margin: 0;
+    padding: 20px;
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+h1 {
+    color: #606c38;
+    text-align: center;
+    margin-bottom: 35px;
+    font-size: 32px;
+    animation: slideDown 0.8s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-25px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Table styling with rounded corners */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    box-shadow: 0 4px 15px rgba(96, 108, 56, 0.15);
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    animation: scaleIn 0.7s ease-out;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.97);
+        opacity: 0.7;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Table header styling - removed borders/lines */
+thead {
+    background-color: #606c38;
+}
+
+th {
+    background-color: #606c38; /* New olive green theme color */
+    color: white;
+    padding: 18px 15px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 17px;
+    letter-spacing: 0.5px;
+    border: none; /* Explicitly removing borders */
+}
+
+/* First and last th elements get rounded corners */
+th:first-child {
+    border-top-left-radius: 12px;
+}
+
+th:last-child {
+    border-top-right-radius: 12px;
+}
+
+/* Center the HMS column specifically */
+th:nth-child(6),
+td:nth-child(6) {
+    text-align: center;
+}
+
+tr {
+    transition: background-color 0.4s ease;
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+tr:nth-child(even) {
+    background-color: #f3f5eb; /* Light tint of olive green */
+}
+
+tr:hover {
+    background-color: #e9ecd9; /* Lighter tint of olive green for hover */
+}
+
+td {
+    padding: 16px 15px;
+    vertical-align: middle;
+    border: none;
+}
+
+/* Image styling with smoother animation */
+img {
+    border-radius: 50%;
+    object-fit: cover;
+    border: none;
+    box-shadow: 0 2px 8px rgba(96, 108, 56, 0.2);
+    max-width: 100px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: appear 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 5px 15px rgba(96, 108, 56, 0.3);
+}
+
+/* No photo message styling */
+td p {
+    color: #606c38;
+    margin: 0;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+/* Removed the header line animation */
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    th, td {
+        padding: 15px 12px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+}

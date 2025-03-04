@@ -1,0 +1,83 @@
+body {
+    font-family: 'Arial', sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9f0;
+    color: #333;
+}
+
+h2 {
+    color: #556b2f;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #6b8e23;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border: none;
+}
+
+th {
+    background-color: #556b2f;
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+td {
+    padding: 10px 15px;
+    border: none;
+}
+
+tr {
+    border-bottom: none;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+tr:nth-child(even) {
+    background-color: #f0f3e0;
+}
+
+tr:hover {
+    background-color: #e0e7c1;
+    transform: translateX(5px);
+}
+
+p {
+    color: #6b8e23;
+    font-style: italic;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Add a subtle animation for new appointments */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+tr {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+@media (max-width: 768px) {
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 8px 10px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+}

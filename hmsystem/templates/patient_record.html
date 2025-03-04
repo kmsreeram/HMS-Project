@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/patient_record.css' %}">
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Records</title>
+</head>
+<body>
+    <h1>Patient Records</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Address</th>
+
+
+            <th>Contact No</th>
+            <th>Age</th>
+            <th>Blood Group</th>
+            <th>HMS</th>
+            <th>User ID</th>
+            <th>Password</th>
+            <th>Photo</th>
+        </tr>
+        {% for patient in patients %}
+        <tr>
+            <td>{{ patient.p_id }}</td>
+            <td>{{ patient.p_name }}</td>
+            <td>{{ patient.p_address }}</td>
+            <td>{{ patient.p_contact_no }}</td>
+            <td>{{ patient.p_age }}</td>
+            <td>{{ patient.p_blood_group}}</td>
+            <td>{{ patient.p_hms}}</td>
+            <td>{{ patient.p_user_id}}</td>
+            <td>{{ patient.p_password}}</td>
+            <td>
+    {% if patient.p_photo %}
+        <img src="{{ patient.p_photo.url }}" alt="Patient Photo" width="100">
+    {% else %}
+        <p>No photo available</p>
+    {% endif %}
+</td>
+
+
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

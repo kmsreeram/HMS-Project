@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/Appointment.css' %}">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointments</title>
+</head>
+<body>
+    <h2>All Appointments</h2>
+
+    {% if appointments %}
+        <table border="1">
+            <tr>
+                <th>Appointment ID</th>
+                <th>Patient</th>
+                <th>Doctor</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>HMS</th>
+            </tr>
+            {% for appointment in appointments %}
+            <tr>
+                <td>{{ appointment.a_appointment_id }}</td>  <!-- Use a_appointment_id -->
+                <td>{{ appointment.a_patient }}</td>
+                <td>{{ appointment.a_doctor }}</td>
+                <td>{{ appointment.a_appointment_date }}</td>
+                <td>{{ appointment.a_status }}</td>
+                <td>{{ appointment.a_hms }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No appointments found.</p>
+    {% endif %}
+</body>
+</html>
